@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Producto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-lg">
+    <h2 class="text-2xl font-bold mb-6 text-orange-600 text-center">Editar Producto</h2>
+    <form method="POST" class="space-y-4">
+      <input name="clave" value="{{ producto[0] }}" class="w-full border p-2 rounded bg-gray-100 cursor-not-allowed" readonly>
+
+      <input name="nombre" value="{{ producto[1] }}" placeholder="Nombre del producto" class="w-full border p-2 rounded" required>
+
+      <input name="precio" value="{{ producto[2] }}" placeholder="Precio" type="number" step="0.01" class="w-full border p-2 rounded" required>
+
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded">Actualizar</button>
+    </form>
+    <div>
+      <a href="/lista" class="block w-full bg-gray-500 hover:bg-gray-600 text-white py-2 rounded-md mt-4 text-center">Cancelar</a>
+    </div>
+  </div>
+</body>
+</html>

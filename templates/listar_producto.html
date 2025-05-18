@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Productos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen p-8">
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold text-center text-orange-600 mb-6">Lista de Productos</h1>
+    <table class="w-full text-left border border-gray-200 rounded">
+      <thead class="bg-orange-100">
+        <tr>
+          <th class="p-2">Clave</th>
+          <th class="p-2">Nombre</th>
+          <th class="p-2">Precio</th>
+          <th class="p-2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for producto in productos %}
+        <tr class="border-t">
+          <td class="p-2">{{ producto[0] }}</td>
+          <td class="p-2">{{ producto[1] }}</td>
+          <td class="p-2">${{ producto[2] }}</td>
+          <td class="p-2 space-x-2">
+            <a href="/editar/{{ producto[0] }}" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded">Editar</a>
+            <form method="POST" action="/eliminar/{{ producto[0] }}" class="inline">
+              <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded" onclick="return confirm('¿Seguro que deseas eliminar este producto?')">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="text-center mt-6">
+      <a href="/producto" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Agregar Producto</a>
+    </div>
+    <div>
+        <button class="w-full bg-orange-300 hover:bg-orange-700 text-white py-2 rounded-md mt-4">
+          <a href="/" >Regresar al Menu</a>
+        </button>
+      </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear y Listar Pedidos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen p-6">
+  <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-xl p-6">
+    <h1 class="text-3xl font-bold text-orange-600 text-center mb-6">Crear Pedido</h1>
+
+    {% if mensaje %}
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+        {{ mensaje }}
+      </div>
+    {% endif %}
+
+    <form method="POST" class="grid grid-cols-1 gap-4 mb-8">
+      <input name="cliente" placeholder="Clave del Cliente" class="border p-2 rounded" required>
+      <input name="producto" placeholder="Clave del Producto" class="border p-2 rounded" required>
+      <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded">
+        Crear Pedido
+      </button>
+    </form>
+
+    <h2 class="text-2xl font-semibold text-orange-500 mb-4">Pedidos Recientes</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left border border-gray-200">
+        <thead class="bg-orange-200 text-orange-800 font-bold">
+          <tr>
+            <th class="px-4 py-2"># Pedido</th>
+            <th class="px-4 py-2">Cliente</th>
+            <th class="px-4 py-2">Producto</th>
+            <th class="px-4 py-2">Precio</th>
+            <th class="px-4 py-2">Fecha</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          {% for pedido in pedidos %}
+          <tr class="hover:bg-orange-50">
+            <td class="px-4 py-2">{{ pedido.pedido }}</td>
+            <td class="px-4 py-2">{{ pedido.cliente }}</td>
+            <td class="px-4 py-2">{{ pedido.producto }}</td>
+            <td class="px-4 py-2">${{ "%.2f"|format(pedido.precio) }}</td>
+            <td class="px-4 py-2">{{ pedido.fecha if pedido.fecha else 'N/D' }}</td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="5" class="text-center text-gray-500 py-4">No hay pedidos aún.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="/" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md">Regresar al Menú</a>
+    </div>
+  </div>
+</body>
+</html>

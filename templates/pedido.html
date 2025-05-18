@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Pedido - Happy Burger</title>
+</head>
+<body>
+    <h1>Consulta de Pedido</h1>
+    <form method="POST">
+        <label>Número de pedido:</label>
+        <input type="number" name="pedido_id" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if pedido %}
+        <h2>Resultado del Pedido</h2>
+        <p><strong>Número:</strong> {{ pedido.pedido }}</p>
+        <p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
+        <p><strong>Producto:</strong> {{ pedido.producto }}</p>
+        <p><strong>Precio:</strong> ${{ pedido.precio }}</p>
+    {% elif request.method == 'POST' %}
+        <p><strong>Pedido no encontrado.</strong></p>
+    {% endif %}
+</body>
+</html>
