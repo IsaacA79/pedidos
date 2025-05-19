@@ -7,7 +7,7 @@
 </head>
 <body class="bg-orange-50 min-h-screen p-6">
   <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-xl p-6">
-    <h1 class="text-3xl font-bold text-orange-600 mb-6 text-center">🧾 Resumen del Pedido</h1>
+    <h1 class="text-3xl font-bold text-orange-600 mb-6 text-center">Resumen del Pedido</h1>
 
     <div class="space-y-6">
       {% for persona in personas %}
@@ -16,10 +16,10 @@
         <ul class="mt-2 divide-y divide-orange-300">
           {% for platillo, precio in persona.platillos %}
           <li class="flex justify-between py-1">
-            <span>{{ platillo }}</span>
+            <span>{{ platillo }}</span> 
             <span>${{ "%.2f"|format(precio) }}</span>
-          </li>
-          {% endfor %}
+          </li> 
+          {% endfor %} 
         </ul>
         <div class="text-right mt-2 font-bold text-lg text-orange-800">
           Total: ${{ "%.2f"|format(persona.total) }}
@@ -35,7 +35,7 @@
       <form method="POST" action="/pedido-desayuno-multiple">
         <input type="hidden" name="datos_json" value='{{ personas | tojson }}'>
         <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md font-bold">
-          ✅ Confirmar Pedido
+          Confirmar Pedido
         </button>
         <a href="/desayunos" class="ml-4 text-orange-600 hover:underline">Editar</a>
       </form>

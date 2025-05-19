@@ -61,7 +61,7 @@ def pedido_desayuno_multiple():
     if request.method == "GET":
         return render_template("formulario_desayunos.html")
 
-    # Recibir el JSON oculto del formulario de confirmación
+    # Recibir el JSON que oculte del formulario de confirmación
     datos_json = request.form.get("datos_json")
     if not datos_json:
         return "No se recibieron datos.", 400
@@ -71,7 +71,7 @@ def pedido_desayuno_multiple():
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Obtener nuevo ID de pedido general
+    # con esto obtenego el nuevo ID de pedido 
     cursor.execute("SELECT IFNULL(MAX(id_pedido), 0) + 1 FROM pedidos_desayuno")
     id_pedido = cursor.fetchone()[0]
 
@@ -87,7 +87,7 @@ def pedido_desayuno_multiple():
     cursor.close()
     conn.close()
 
-    # Calcular totales por persona para mostrar en resumen
+    # totales por persona para mostrar
     for p in personas:
         p["total"] = sum(p["precio"] for _, p["precio"] in p["platillos"])
 
@@ -123,11 +123,9 @@ def revisar_pedido():
 
     return render_template("resumen_pedido.html", personas=personas, total_general=total_general)
 
-
-
-
-
 #--------------------
+
+
 #historial desayunos------------------
 @app.route("/historial-desayunos", methods=["GET", "POST"])
 def historial_desayunos():
@@ -313,8 +311,6 @@ def buscar_y_crear_pedido():
                            pedidos_total=pedidos_total,
                            pagina_actual=pagina_actual,
                            mensaje=mensaje)
-
-
 
 
 
