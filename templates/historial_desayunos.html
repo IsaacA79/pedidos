@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Historial de Desayunos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen p-4">
+  <div class="max-w-6xl mx-auto bg-white shadow-xl rounded-xl p-6">
+    <h1 class="text-3xl font-bold text-orange-600 mb-6 text-center">📋 Historial de Desayunos</h1>
+
+    <form method="POST" class="grid grid-cols-1 sm:grid-cols-5 gap-4 mb-6">
+      <input type="text" name="cliente" placeholder="Nombre del cliente"
+             value="{{ cliente }}" class="border p-2 rounded col-span-1" />
+
+      <input type="date" name="fecha_inicio" value="{{ fecha_inicio }}" class="border p-2 rounded col-span-1" />
+      <input type="date" name="fecha_fin" value="{{ fecha_fin }}" class="border p-2 rounded col-span-1" />
+
+      <button type="submit"
+              class="bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded px-4 py-2 col-span-1">
+        Buscar
+      </button>
+
+      
+      <a href="/" class="bg-green-500 hover:bg-green-600 text-white font-semibold text-center rounded px-4 py-2 col-span-1">Regresar al menú</a>
+    
+    </form>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm border border-gray-300">
+        <thead class="bg-orange-200 text-orange-800">
+          <tr>
+            <th class="px-3 py-2">#</th>
+            <th class="px-3 py-2">Cliente</th>
+            <th class="px-3 py-2">Platillo</th>
+            <th class="px-3 py-2">Precio</th>
+            <th class="px-3 py-2">Fecha</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          {% for p in pedidos %}
+          <tr class="hover:bg-orange-50">
+            <td class="px-3 py-2 text-center">{{ p.id_pedido }}</td>
+            <td class="px-3 py-2 text-center">{{ p.cliente_nombre }}</td>
+            <td class="px-3 py-2 text-center">{{ p.platillo }}</td>
+            <td class="px-3 py-2 text-center">${{ "%.2f"|format(p.precio) }}</td>
+            <td class="px-3 py-2 text-center">{{ p.fecha.strftime('%Y-%m-%d %H:%M') }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5" class="text-center py-4 text-gray-500">No se encontraron pedidos.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="/" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md">Regresar al menú</a>
+    </div>
+  </div>
+</body>
+</html>

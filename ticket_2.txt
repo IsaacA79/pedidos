@@ -1,12 +1,11 @@
 
-        -------------------------------
-        Happy Burger - Ticket de Pedido
-        Pedido No.: 2
-        Fecha: 2025-05-03 22:49:24
-        Cliente: isaac
-        Producto: piñaaas
-        Precio: $63.00
-        IVA: $10.08
-        Total: $73.08
-        -------------------------------
-        
+-------------------------------
+Happy Burger - Ticket de Pedido
+Pedido No.: 2
+Fecha: 2025-05-18 19:05:43
+Cliente: isaac
+Producto: Tacos Mixtos
+Precio: $23.00
+IVA: $3.68
+Total: $26.68
+-------------------------------

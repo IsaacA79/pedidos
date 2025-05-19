@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seleccionar Desayunos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-xl rounded-xl p-6 w-full max-w-2xl">
+    <h1 class="text-2xl font-bold text-orange-600 mb-4 text-center">🥞 Selecciona tus Desayunos</h1>
+
+    <form method="POST" action="/pedido-desayuno" class="space-y-4">
+      <input type="text" name="cliente" placeholder="Nombre del Cliente"
+       class="w-full border p-2 rounded mb-4" required>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {% set desayunos = [
+          ("Omelet con Jamón y Queso", 129), ("Omelet a la mexicana", 129),
+          ("Hotcakes", 100), ("Huevos estrellados", 110),
+          ("Huevos Rancheros", 120), ("Huevos divorciados", 115),
+          ("Huevos con jamón", 129), ("Huevos con chorizo", 129),
+          ("Huevos con salsa", 129), ("Huevos con salchicha", 129),
+          ("Huevos con migas", 129), ("Chilaquiles verdes", 120),
+          ("Chilaquiles verdes con huevo", 135), ("Chilaquiles rojos", 120),
+          ("Chilaquiles rojos con huevo", 135), ("Machacado Natural", 135),
+          ("Machacado Salseado", 135), ("Machacado a la Mexicana", 135),
+          ("Sincronizadas", 90), ("Quesadillas", 80),
+          ("Club Sandwich", 110), ("Yogurt con fruta ½ Lt.", 70)
+        ] %}
+        
+        {% for platillo, precio in desayunos %}
+        <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50">
+          <input type="checkbox" name="desayunos" value="{{ platillo }}|{{ precio }}" class="form-checkbox text-orange-500" />
+          <span>{{ platillo }} <span class="text-gray-500 text-sm">(${{ precio }})</span></span>
+        </label>
+        {% endfor %}
+      </div>
+
+      <div class="text-center pt-4">
+        <button type="submit"
+                class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded font-semibold">
+          Enviar Pedido
+        </button>
+      </div>
+    </form>
+
+    <div class="mt-6 text-center">
+      <a href="/" class="text-orange-500 hover:underline">Regresar al menú</a>
+    </div>
+  </div>
+</body>
+</html>

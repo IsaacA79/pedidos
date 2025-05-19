@@ -1,12 +1,11 @@
 
-        -------------------------------
-        Happy Burger - Ticket de Pedido
-        Pedido No.: 1
-        Fecha: 2025-05-03 22:48:30
-        Cliente: isaac
-        Producto: PIÑA
-        Precio: $25.00
-        IVA: $4.00
-        Total: $29.00
-        -------------------------------
-        
+-------------------------------
+Happy Burger - Ticket de Pedido
+Pedido No.: 1
+Fecha: 2025-05-18 18:11:23
+Cliente: isaac
+Producto: Tacos de Bistec
+Precio: $155.00
+IVA: $24.80
+Total: $179.80
+-------------------------------

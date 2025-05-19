@@ -1,12 +1,11 @@
 
-        -------------------------------
-        Happy Burger - Ticket de Pedido
-        Pedido No.: 5
-        Fecha: 2025-05-12 19:55:04
-        Cliente: JOB ISAAC AMADOR
-        Producto: Tacos de Bistec
-        Precio: $135.25
-        IVA: $21.64
-        Total: $156.89
-        -------------------------------
-        
+-------------------------------
+Happy Burger - Ticket de Pedido
+Pedido No.: 5
+Fecha: 2025-05-18 19:47:32
+Cliente: pepe
+Producto: Tacos de Suadero
+Precio: $115.80
+IVA: $18.53
+Total: $134.33
+-------------------------------

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pedido de Desayunos por Personas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    let contador = 0;
+
+    function agregarPersona() {
+      const plantilla = document.querySelector("#plantilla-persona");
+      const clon = plantilla.content.cloneNode(true);
+      clon.querySelector("input[name='cliente']").name = `persona[${contador}][cliente]`;
+      clon.querySelectorAll("input[type='checkbox']").forEach(cb => {
+        cb.name = `persona[${contador}][desayunos][]`;
+        cb.checked = false;
+      });
+      clon.querySelector(".titulo-persona").textContent = `Persona ${contador + 1}`;
+      document.getElementById("contenedor-personas").appendChild(clon);
+      contador++;
+    }
+
+    window.onload = agregarPersona;
+  </script>
+</head>
+<body class="bg-orange-50 min-h-screen p-6">
+  <div class="max-w-6xl mx-auto bg-white shadow-xl rounded-xl p-6">
+    <h1 class="text-3xl font-bold text-orange-600 mb-6 text-center">🥞 Pedido Múltiple de Desayunos</h1>
+
+    <form method="POST" action="/revisar-pedido">
+      <div id="contenedor-personas" class="space-y-8"></div>
+
+      <div class="text-center mt-6 space-y-4">
+        <button type="button" onclick="agregarPersona()"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-md">
+          ➕ Agregar Persona
+        </button>
+        <br>
+        <button type="submit"
+                class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2 rounded-md">
+          🔍 Revisar Pedido
+        </button>
+        <br>
+         <button class=" bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-md">
+        <a href="/" >Regresar al Menu</a>
+      </button>
+      </div>
+
+     
+    </form>
+  </div>
+
+  <template id="plantilla-persona">
+    <div class="persona-formulario border rounded-xl p-4 bg-orange-100 space-y-4 relative">
+      <div class="contenido-persona space-y-4">
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-semibold text-orange-700 titulo-persona">Persona</h2>
+          <button type="button" onclick="this.closest('.persona-formulario').remove();" class="text-red-500 hover:underline text-sm">🗑 Eliminar Persona</button>
+        </div>
+        <input name="cliente" type="text" placeholder="Nombre del Cliente" required class="w-full border p-2 rounded" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {% set desayunos = [
+            ("Omelet con Jamón y Queso", 129), ("Omelet a la mexicana", 129),
+            ("Hotcakes", 100), ("Huevos estrellados", 110),
+            ("Huevos Rancheros", 120), ("Huevos divorciados", 115),
+            ("Huevos con jamón", 129), ("Huevos con chorizo", 129),
+            ("Huevos con salsa", 129), ("Huevos con salchicha", 129),
+            ("Huevos con migas", 129), ("Chilaquiles verdes", 120),
+            ("Chilaquiles verdes con huevo", 135), ("Chilaquiles rojos", 120),
+            ("Chilaquiles rojos con huevo", 135), ("Machacado Natural", 135),
+            ("Machacado Salseado", 135), ("Machacado a la Mexicana", 135),
+            ("Sincronizadas", 90), ("Quesadillas", 80),
+            ("Club Sandwich", 110), ("Yogurt con fruta ½ Lt.", 70)
+          ] %}
+          {% for platillo, precio in desayunos %}
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" name="desayunos" value="{{ platillo }}|{{ precio }}" class="form-checkbox text-orange-500" />
+            <span>{{ platillo }} (${{ precio }})</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
+</html>

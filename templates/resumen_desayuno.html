@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resumen de Pedido</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-xl rounded-xl p-6 w-full max-w-xl">
+    <h1 class="text-2xl font-bold text-orange-600 mb-4 text-center">✅ Pedido Recibido</h1>
+    <h2 class="text-lg text-gray-700 mb-4 text-center">Cliente: {{ cliente }}</h2>
+    <h2 class="text-lg text-gray-700 mb-2 text-center">Pedido N° {{ id_pedido }}</h2>
+
+    <ul class="space-y-2 mb-6">
+      {% for platillo, precio in seleccionados %}
+      <li class="flex justify-between border-b pb-1">
+        <span>{{ platillo }}</span>
+        <span class="text-gray-700 font-medium">${{ "%.2f"|format(precio) }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="text-right text-lg font-bold text-orange-700">
+      Total: ${{ "%.2f"|format(total) }}
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="/desayunos" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md">
+        Hacer otro pedido
+      </a>
+      <a href="/" class="ml-4 text-orange-600 hover:underline">Regresar al menú</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -11,6 +11,15 @@
         <input type="number" name="pedido_id" required>
         <button type="submit">Buscar</button>
     </form>
+    
+    <form method="POST" class="grid grid-cols-1 gap-4 mb-8">
+      <input name="cliente" placeholder="Clave del Cliente" class="border p-2 rounded" required>
+      <input name="producto" placeholder="Clave del Producto" class="border p-2 rounded" required>
+      <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded">
+        Crear Pedido
+      </button>
+    </form>
+
 
     {% if pedido %}
         <h2>Resultado del Pedido</h2>

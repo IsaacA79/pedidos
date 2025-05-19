@@ -9,6 +9,10 @@ class Cliente:
             raise Exception("No se pudo establecer la conexión a la base de datos.")
 
     def agregar_cliente(self, clave, nombre, direccion, correo, telefono):
+        self.cursor.execute("SELECT clave FROM clientes WHERE clave = %s", (clave,))
+        if self.cursor.fetchone():
+            print(f"Ya existe un cliente con la clave '{clave}'. No se insertó.")
+            return
         query = "INSERT INTO clientes VALUES (%s, %s, %s, %s, %s)"
         self.cursor.execute(query, (clave, nombre, direccion, correo, telefono))
         self.conn.commit()

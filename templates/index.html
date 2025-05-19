@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Fondita</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy_Burger</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-orange-50 min-h-screen flex items-center justify-center">
-  <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-md text-center">
-    <h1 class="text-3xl font-bold text-orange-600 mb-6">🍔 Mi Fondita</h1>
+<body class="bg-orange-50 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-xl rounded-2xl p-6 w-full max-w-md sm:max-w-lg text-center space-y-6">
+    <h1 class="text-4xl font-extrabold text-orange-600">Happy Burger</h1>
     <ul class="space-y-4">
-      <li><a href="/cliente" class="block bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md">Agregar Cliente</a></li>
-      <li><a href="/lista" class="block bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md">Lista de Producto</a></li>
-      <li><a href="/pedido" class="block bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md">Crear Pedido</a></li>
-      <li><a href="/buscar-pedido" class="block bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md">Buscar Pedido</a></li>
+      <li>
+        <a href="/pedido-desayuno-multiple"
+           class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition duration-200">
+          Desayunos
+        </a>
+      </li>
+
+      <li>
+        <a href="/historial-desayunos"
+           class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition duration-200">
+          Historial
+        </a>
+      </li>
+      <li>
+        <a href="/cliente"
+           class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition duration-200">
+          Agregar Cliente
+        </a>
+      </li>
+      <li>
+        <a href="/lista"
+           class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition duration-200">
+          Lista de Producto
+        </a>
+      </li>
+      <li>
+        <a href="/pedido"
+           class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition duration-200">
+          Crear Pedido
+        </a>
+      </li>
+
+      <li>
+        <a href="/buscar-pedido"
+           class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 rounded-lg transition duration-200">
+          Buscar Pedido
+        </a>
+      </li>
     </ul>
   </div>
 </body>

@@ -1,12 +1,11 @@
 
-        -------------------------------
-        Happy Burger - Ticket de Pedido
-        Pedido No.: 3
-        Fecha: 2025-05-04 11:06:16
-        Cliente: Nailu Escamilla
-        Producto: Tacos de Bistec
-        Precio: $120.25
-        IVA: $19.24
-        Total: $139.49
-        -------------------------------
-        
+-------------------------------
+Happy Burger - Ticket de Pedido
+Pedido No.: 3
+Fecha: 2025-05-18 19:27:20
+Cliente: isaac
+Producto: Tacos de Suadero
+Precio: $115.80
+IVA: $18.53
+Total: $134.33
+-------------------------------
