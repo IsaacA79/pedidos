@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resumen del Pedido</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 min-h-screen p-6">
+  <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-6">
+    <h1 class="text-3xl font-bold text-orange-600 text-center mb-6">Resumen del Pedido #{{ id_pedido }}</h1>
+
+    {% for persona in personas %}
+      <div class="mb-6 border-b pb-4">
+        <h2 class="text-xl font-semibold text-orange-700">{{ persona.nombre }}</h2>
+        <ul class="list-disc list-inside mt-2">
+          {% for platillo, precio in persona.platillos %}
+          <li>{{ platillo }} - ${{ '%.2f'|format(precio) }}</li>
+          {% endfor %}
+        </ul>
+        <p class="mt-2 font-bold">Total: ${{ '%.2f'|format(persona.total) }}</p>
+      </div>
+    {% endfor %}
+
+    <div class="text-center mt-6">
+      <a href="/" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded">← Volver al Menú</a>
+    </div>
+  </div>
+</body>
+</html>
